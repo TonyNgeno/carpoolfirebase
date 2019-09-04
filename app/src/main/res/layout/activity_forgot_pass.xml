@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image_small"
+    tools:context="com.example.puneet.tempapplication.ForgotPass">
+
+
+    <ImageView
+        android:id="@+id/fpimageView"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        app:srcCompat="@drawable/logo" />
+    <EditText
+        android:id="@+id/fpemail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/fpimageView"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/za_text_edit"
+        android:ems="10"
+        android:hint=" Enter Email.."
+        android:inputType="textEmailAddress"
+        android:textColorHint="@android:color/white"
+        android:textSize="16dp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fpsubmit"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:layout_below="@+id/fpemail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Submit"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+</RelativeLayout>

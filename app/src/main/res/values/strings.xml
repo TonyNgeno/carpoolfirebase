@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TempApplication</string>
+    <string name="action_settings">Log Out</string>
+
+</resources>
