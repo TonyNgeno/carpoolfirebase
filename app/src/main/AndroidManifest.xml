@@ -5,22 +5,24 @@
 
     <application
         android:allowBackup="true"
+        android:appComponentFactory="whateverString"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:replace= "android:appComponentFactory"
-        android:appComponentFactory="whateverString"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ChooseActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".NewHome"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".ChooseActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".DriverRegisterHere" />
-        <activity android:name=".DriverLoginActivity"/>
-        <activity android:name=".PassengerLoginActivity"/>
-        <activity android:name=".PassengerRegisterHere"/>
+        <activity android:name=".DriverLoginActivity" />
+        <activity android:name=".PassengerLoginActivity" />
+        <activity android:name=".PassengerRegisterHere" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".LastActivity" />
         <activity android:name=".Splash">

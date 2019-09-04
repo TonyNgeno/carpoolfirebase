@@ -37,7 +37,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 
 
-public class PassengerLoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class PassengerLoginActivity extends AppCompatActivity {
 
     private SignInButton mGoogleBtn;
     private FirebaseAuth mAuth;
@@ -83,6 +83,14 @@ public class PassengerLoginActivity extends AppCompatActivity implements View.On
             }
         };
 
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Register.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,20 +127,6 @@ public class PassengerLoginActivity extends AppCompatActivity implements View.On
         Intent intent = new Intent(PassengerLoginActivity.this, ForgotPass.class);
         startActivity(intent);
     }
-
-    public  void rgstr(){
-        final Intent mainIntent = new Intent(PassengerLoginActivity.this, DriverRegisterHere.class);
-        PassengerLoginActivity.this.startActivity(mainIntent);
-        PassengerLoginActivity.this.finish();
-    }
-
-    @Override
-    public void onClick(View view) {
-        if(view == register){
-            rgstr();
-        }
-    }
-
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
