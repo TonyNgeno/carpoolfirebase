@@ -43,10 +43,10 @@ public class DriverLoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN=1;
     private GoogleSignInClient mGoogleSignInClient;
     private static final String TAG ="LoginActivity";
-    private Button mButton;
+    Button mButton,register;
     CardView mLogin;
     private EditText mEmail,mPass;
-    private TextView register;
+    private TextView mRegister;
     private ProgressDialog dialog;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -61,41 +61,54 @@ public class DriverLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driver_login);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        register=(TextView) findViewById(R.id.register);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mRegister = findViewById(R.id.register);
         mEmail=(EditText) findViewById(R.id.email);
         mPass=(EditText)findViewById(R.id.password);
         mLogin=(CardView) findViewById(R.id.login);
         dialog=new ProgressDialog(this);
 
-        mAuth = FirebaseAuth.getInstance();
+
         mGoogleBtn=(SignInButton)findViewById(R.id.googlebtn);
+
+        mRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DriverLoginActivity.this,DriverRegisterHere.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user!=null){
                     Intent intent = new Intent(DriverLoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
-                    return;
                 }
 
 
             }
         };
+        //add listener
+        mAuth.addAuthStateListener(firebaseAuthListener);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String email = mEmail.getText().toString();
                 final String password = mPass.getText().toString();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(DriverLoginActivity.this, "Signup Error", Toast.LENGTH_SHORT).show();
+                        if(!task.isSuccessful()){
+                            Toast.makeText(DriverLoginActivity.this, "Signin Error", Toast.LENGTH_SHORT).show();
                         } else {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
