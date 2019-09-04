@@ -37,7 +37,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 
 
-public class PassengerLoginActivity extends AppCompatActivity {
+public class PassengerLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SignInButton mGoogleBtn;
     private FirebaseAuth mAuth;
@@ -71,10 +71,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
         dialog=new ProgressDialog(this);
         mGoogleBtn=(SignInButton)findViewById(R.id.googlebtn);
 
-
-
-
-
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -84,16 +80,24 @@ public class PassengerLoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
-
-
             }
         };
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = mEmail.getText().toString();
-                final String password = mPass.getText().toString();
+                final String email = mEmail.getText().toString().trim();
+                final String password = mPass.getText().toString().trim();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(PassengerLoginActivity.this, "Please enter Email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(PassengerLoginActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(PassengerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -116,12 +120,19 @@ public class PassengerLoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
-    public  void rgstr(View view){
-        Intent intent=new Intent(PassengerLoginActivity.this, DriverRegisterHere.class);
-        startActivity(intent);
+    public  void rgstr(){
+        final Intent mainIntent = new Intent(PassengerLoginActivity.this, DriverRegisterHere.class);
+        PassengerLoginActivity.this.startActivity(mainIntent);
+        PassengerLoginActivity.this.finish();
     }
+
+    @Override
+    public void onClick(View view) {
+        if(view == register){
+            rgstr();
+        }
+    }
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -220,4 +231,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthListener);
     }
+
+
 }

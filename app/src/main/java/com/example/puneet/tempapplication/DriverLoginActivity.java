@@ -104,6 +104,17 @@ public class DriverLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = mEmail.getText().toString();
                 final String password = mPass.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(DriverLoginActivity.this, "Please enter Email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(password)) {
+                    Toast.makeText(DriverLoginActivity.this, "Please enter Password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
