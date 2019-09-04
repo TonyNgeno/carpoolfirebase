@@ -18,6 +18,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".DriverRegisterHere" />
+        <activity android:name=".DriverLoginActivity"/>
+        <activity android:name=".PassengerLoginActivity"/>
+        <activity android:name=".PassengerRegisterHere"/>
         <activity android:name=".ForgotPass" />
         <activity android:name=".LastActivity" />
         <activity android:name=".Splash">

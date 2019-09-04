@@ -60,15 +60,19 @@ public class PassengerLoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_passenger_login);
+
+        mAuth = FirebaseAuth.getInstance();
+
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         register=(TextView) findViewById(R.id.register);
         mEmail=(EditText) findViewById(R.id.email);
         mPass=(EditText)findViewById(R.id.password);
         mLogin=(CardView) findViewById(R.id.login);
         dialog=new ProgressDialog(this);
-
-        mAuth = FirebaseAuth.getInstance();
         mGoogleBtn=(SignInButton)findViewById(R.id.googlebtn);
+
+
+
 
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -79,7 +83,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(PassengerLoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
-                    return;
                 }
 
 
@@ -91,11 +94,12 @@ public class PassengerLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = mEmail.getText().toString();
                 final String password = mPass.getText().toString();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(PassengerLoginActivity.this, new OnCompleteListener<AuthResult>() {
+
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(PassengerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(PassengerLoginActivity.this, "Signup Error", Toast.LENGTH_SHORT).show();
+                        if(!task.isSuccessful()){
+                            Toast.makeText(PassengerLoginActivity.this, "Signin Error", Toast.LENGTH_SHORT).show();
                         } else {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Passengers").child(user_id);
@@ -171,6 +175,7 @@ public class PassengerLoginActivity extends AppCompatActivity {
     private void StartSignin() {
         dialog.setMessage("Signing in");
         dialog.show();
+
         String email1 = mEmail.getText().toString().trim();
         String password = mPass.getText().toString().trim();
         if(TextUtils.isEmpty(email1)||TextUtils.isEmpty(password)){
@@ -178,24 +183,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
             dialog.dismiss();
         }
 
-        else
-        {
-
-            mAuth.signInWithEmailAndPassword(email1, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (!task.isSuccessful()) {
-                        dialog.dismiss();
-                        Toast.makeText(PassengerLoginActivity.this, "error", Toast.LENGTH_LONG).show();
-
-                    }else {
-                        String user_id = mAuth.getCurrentUser().getUid();
-                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
-                        current_user_db.setValue(true);
-                    }
-                }
-            });
-        }
     }
 
     public void onPermissionsGranted(int requestCode) {

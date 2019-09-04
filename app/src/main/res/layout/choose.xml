@@ -9,20 +9,59 @@
     android:background="@drawable/background_image_small"
     tools:context=".ChooseActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="I'm a Driver"
-        android:background="@color/yellow2"
-        android:id="@+id/driver"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@color/yellow2"
-        android:text="I'm a Passenger"
-        android:id="@+id/passenger"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/driver"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="73dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="I'm a Driver"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/passenger"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="I'm a Passenger"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
 
 
 </LinearLayout>

@@ -43,6 +43,8 @@ public class DriverRegisterHere extends AppCompatActivity {
         setContentView(R.layout.activity_driver_register_here);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        mAuth = FirebaseAuth.getInstance();
+
 
         dialog = new ProgressDialog(this);
         mEmail = (EditText) findViewById(R.id.email);

@@ -2,6 +2,7 @@ package com.example.puneet.tempapplication;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 
 import android.content.Intent;
@@ -10,14 +11,17 @@ import android.view.View;
 import android.widget.Button;
 
 public class ChooseActivity extends AppCompatActivity {
-    private Button mDriver, mPassenger;
+
+    CardView mDriver,mPassenger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose);
-        mDriver = (Button) findViewById(R.id.driver);
-        mPassenger = (Button) findViewById(R.id.passenger);
+
+        mDriver = findViewById(R.id.driver);
+        mPassenger = findViewById(R.id.passenger);
+
 
         mDriver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +29,6 @@ public class ChooseActivity extends AppCompatActivity {
                 Intent intent = new Intent(ChooseActivity.this, DriverLoginActivity.class);
                 startActivity(intent);
                 finish();
-                return;
             }
         });
 
@@ -35,7 +38,6 @@ public class ChooseActivity extends AppCompatActivity {
                 Intent intent = new Intent(ChooseActivity.this, PassengerLoginActivity.class);
                 startActivity(intent);
                 finish();
-                return;
             }
         });
 
