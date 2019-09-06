@@ -52,15 +52,15 @@ public class OfferRide extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(editTextStart.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Enter Start Destination", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(editTextDest.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Enter Destination", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(editDate.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(editTextSeatNo.getText().toString())){

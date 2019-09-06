@@ -61,19 +61,19 @@ public class DriverProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(carname.getText().toString())){
-                    Toast.makeText(DriverProfile.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DriverProfile.this, "Please Enter Car Name!", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(iddetail.getText().toString())){
-                    Toast.makeText(DriverProfile.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DriverProfile.this, "Please Enter Id or Passport Number!", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(drivinglicence.getText().toString())){
-                    Toast.makeText(DriverProfile.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DriverProfile.this, "Please insert Driving License Number!", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(numberplate.getText().toString())){
-                    Toast.makeText(DriverProfile.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DriverProfile.this, "Please insert Number Plate! ", Toast.LENGTH_SHORT).show();
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(DriverProfile.this);
@@ -92,7 +92,7 @@ public class DriverProfile extends AppCompatActivity {
                         table_driver_profiles.child(mCarName).setValue(driverProfile);
 
                         Toast.makeText(DriverProfile.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        final Intent mainIntent = new Intent(DriverProfile.this, PassengerProfile.class);
+                        final Intent mainIntent = new Intent(DriverProfile.this, OfferRide.class);
                         DriverProfile.this.startActivity(mainIntent);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         DriverProfile.this.finish();

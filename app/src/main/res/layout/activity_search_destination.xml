@@ -28,6 +28,24 @@
                 android:layout_height="match_parent"
                 android:layout_margin="3dp" />
 
+            <com.github.glomadrian.materialanimatedswitch.MaterialAnimatedSwitch
+                android:id="@+id/location_switch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:icon_release= "@drawable/ic_location_off"
+                android:icon_press= "@drawable/ic_location_on"
+                app:base_release_colors= "@color/baseReleaseColor"
+                app:base_press_colors= "@color/basePressColor"
+                app:ball_release_colors= "@color/ballReleaseColor"
+                app:ball_press_colors= "@android:color/white"
+
+                />
+
+
+
+
+
 
             <ImageView
                 android:layout_width="match_parent"

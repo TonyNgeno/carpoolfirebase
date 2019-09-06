@@ -12,4 +12,8 @@
     <color name="text_shadow_white">#FFFFFF</color>
     <color name="navbar_color">#fcc764</color>
 
+    <color name="baseReleaseColor"> #212121</color>
+    <color name="basePressColor"> #FAFAFA</color>
+    <color name="ballReleaseColor"> #9E9E9E</color>
+
 </resources>
