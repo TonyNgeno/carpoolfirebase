@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "1010151585615",
-    "firebase_url": "https://logintest-7f66b.firebaseio.com",
-    "project_id": "logintest-7f66b",
-    "storage_bucket": "logintest-7f66b.appspot.com"
+    "project_number": "850820487600",
+    "firebase_url": "https://ridealongdb.firebaseio.com",
+    "project_id": "ridealongdb",
+    "storage_bucket": "ridealongdb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1010151585615:android:e5ba760b0c190e0c",
+        "mobilesdk_app_id": "1:850820487600:android:988fbd7bab7938f7ec9e75",
         "android_client_info": {
-          "package_name": "com.example.puneet.tempapplication"
+          "package_name": "com.example.tony.ridealong"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1010151585615-4h4m26clsja5tc66ji7plamdsi89lbqp.apps.googleusercontent.com",
+          "client_id": "850820487600-2vdefoiovppqmodkhr6r3gcok1tvim34.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.puneet.tempapplication",
+            "package_name": "com.example.tony.ridealong",
             "certificate_hash": "78faa3214faa40563ba25ae173915d57367d66a6"
           }
         },
         {
-          "client_id": "1010151585615-u1d3p44jkijvd5efoioao9ges5mto0ak.apps.googleusercontent.com",
+          "client_id": "850820487600-mvbs9fk5h17vu2le9qc0elm74585sj1n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDnytIdYx_5JN9RKynYtAqPq-vRIE74-eY"
+          "current_key": "AIzaSyB6yCgIYPiNtW-vKzGBuCjiX7STB7SpvRw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1010151585615-u1d3p44jkijvd5efoioao9ges5mto0ak.apps.googleusercontent.com",
+              "client_id": "850820487600-mvbs9fk5h17vu2le9qc0elm74585sj1n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
