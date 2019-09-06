@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/background_image_small"
     android:layout_height="match_parent"
-    tools:context="com.example.puneet.tempapplication.Splash">
+    tools:context="com.example.tony.ridealong.Splash">
 
     <RelativeLayout
         android:layout_width="wrap_content"

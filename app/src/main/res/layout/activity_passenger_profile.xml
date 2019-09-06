@@ -7,6 +7,39 @@
     android:background="@drawable/background_image_small"
     tools:context="com.example.tony.ridealong.DriverRegisterHere">
 
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:id="@+id/linearlayoutadd"
+        android:layout_centerHorizontal="true"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/logoimg">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:text="Add Your Image"/>
+
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="78dp"
+            android:layout_weight="2"
+            android:layout_below="@+id/logoimg"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/camera" />
+
+
+    </LinearLayout>
+
+
     <ImageView
         android:id="@+id/logoimg"
         android:layout_width="120dp"
@@ -14,64 +47,36 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"/>
+
+
+
 
     <EditText
-        android:id="@+id/email"
-        android:layout_width="275dp"
+        android:id="@+id/iddetail"
+        android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/logoimg"
+        android:layout_below="@+id/linearlayoutadd"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/za_text_edit"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint=" Enter Id Number or Passport Number"
+        android:inputType="number"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:textSize="16dp" />
 
 
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:textColor="@android:color/white"
-        android:id="@+id/password"
-        android:hint="Enter Password..."
-        android:background="@drawable/za_text_edit"
-        android:inputType="textPassword"
-        android:textColorHint="@android:color/white"
-        android:textSize="16dp"
-        />
-
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/za_text_edit"
-        android:ems="10"
-        android:id="@+id/password2"
-        android:textColor="#913f3f"
-        android:hint=" Enter Password Again..."
-        android:inputType="textPassword"
-        android:textColorHint="#fff"
-        android:textSize="16dp"
-        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/submit"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/password2"
+        android:layout_below="@+id/iddetail"
         android:clickable="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         app:cardBackgroundColor="@color/yellow2"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp">
@@ -85,21 +90,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Sign Up"
+                android:text="Continue"
                 android:textColor="@android:color/black"
                 android:textSize="22sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/alreg"
-        android:layout_below="@+id/submit"
-        android:text="Already Registered"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:layout_marginTop="30dp"/>
+
 
 </RelativeLayout>
