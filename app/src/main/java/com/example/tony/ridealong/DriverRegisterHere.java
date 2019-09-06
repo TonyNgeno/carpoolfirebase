@@ -100,6 +100,28 @@ public class DriverRegisterHere extends AppCompatActivity {
 
 
 //        progressBar.setVisibility(View.VISIBLE);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //create user
         dialog.setMessage("Signing Up");
         dialog.show();
@@ -135,6 +157,7 @@ public class DriverRegisterHere extends AppCompatActivity {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthListener);
     }
+
 }
 
 

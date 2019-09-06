@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -77,14 +78,23 @@ public class OfferRide extends AppCompatActivity {
                 mTextStart = editTextStart.getText().toString();
                 mTextDest = editTextDest.getText().toString();
                 mDate = editDate.getText().toString();
-                mTextSeatNo = editTextStart.getText().toString();
-                mTextSeatPrice = editTextStart.getText().toString();
+                mTextSeatNo = editTextSeatNo.getText().toString();
+                mTextSeatPrice = editTextSeatPrice.getText().toString();
 
                 table_rides.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         com.example.tony.ridealong.Model.OfferRide offerRide = new com.example.tony.ridealong.Model.OfferRide(mTextDest,mDate,mTextSeatNo,mTextSeatPrice);
                         table_rides.child(mTextStart).setValue(offerRide);
+
+                        Toast.makeText(OfferRide.this, "Welcome", Toast.LENGTH_SHORT).show();
+                        final Intent mainIntent = new Intent(OfferRide.this, PassengerProfile.class);
+                        OfferRide.this.startActivity(mainIntent);
+                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        OfferRide.this.finish();
+
+
+
                     }
 
                     @Override
@@ -94,6 +104,7 @@ public class OfferRide extends AppCompatActivity {
                 });
             }
         });
+
 
 
 
