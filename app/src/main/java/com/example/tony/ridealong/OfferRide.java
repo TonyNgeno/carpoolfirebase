@@ -60,15 +60,15 @@ public class OfferRide extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(editDate.getText().toString())){
-                    Toast.makeText(OfferRide.this, "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Please Enter Date", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(editTextSeatNo.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Please Enter Seat No !!!", Toast.LENGTH_SHORT).show();
                 }
 
                 if (TextUtils.isEmpty(editTextSeatPrice.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Empty fields !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Enter Pricegit !!!", Toast.LENGTH_SHORT).show();
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(OfferRide.this);
