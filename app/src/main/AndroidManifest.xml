@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -29,10 +29,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name="com.example.tony.ridealong.RateActivity"></activity>
-        <activity android:name="com.example.tony.ridealong.OfferRide" />
-        <activity android:name="com.example.tony.ridealong.PassengerProfile" />
-        <activity android:name="com.example.tony.ridealong.DriverProfile" />
+        <activity
+            android:name=".Home_Navigation"
+            android:label="@string/title_activity_home__navigation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".RateActivity" />
+        <activity android:name=".OfferRide" />
+        <activity android:name=".PassengerProfile" />
+        <activity android:name=".DriverProfile" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,22 +50,22 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.example.tony.ridealong.PassengerMapsActivity"
+            android:name=".PassengerMapsActivity"
             android:label="@string/title_activity_passenger_maps" />
-        <activity android:name="com.example.tony.ridealong.SearchDestination" />
-        <activity android:name="com.example.tony.ridealong.NewHome" />
-        <activity android:name="com.example.tony.ridealong.PassengerRegister" />
-        <activity android:name="com.example.tony.ridealong.ChooseActivity" />
-        <activity android:name="com.example.tony.ridealong.MainActivity" />
-        <activity android:name="com.example.tony.ridealong.LoginActivity" />
-        <activity android:name="com.example.tony.ridealong.HomeActivity" />
-        <activity android:name="com.example.tony.ridealong.DriverRegisterHere" />
-        <activity android:name="com.example.tony.ridealong.DriverLoginActivity" />
-        <activity android:name="com.example.tony.ridealong.PassengerLoginActivity" />
-        <activity android:name="com.example.tony.ridealong.PassengerRegisterHere" />
-        <activity android:name="com.example.tony.ridealong.ForgotPass" />
-        <activity android:name="com.example.tony.ridealong.LastActivity" />
-        <activity android:name="com.example.tony.ridealong.Splash">
+        <activity android:name=".SearchDestination" />
+        <activity android:name=".NewHome" />
+        <activity android:name=".PassengerRegister" />
+        <activity android:name=".ChooseActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".DriverRegisterHere" />
+        <activity android:name=".DriverLoginActivity" />
+        <activity android:name=".PassengerLoginActivity" />
+        <activity android:name=".PassengerRegisterHere" />
+        <activity android:name=".ForgotPass" />
+        <activity android:name=".LastActivity" />
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

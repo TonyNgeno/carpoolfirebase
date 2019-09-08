@@ -72,7 +72,7 @@ public class OfferRide extends AppCompatActivity {
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(OfferRide.this);
-                progressDialog.setMessage("please wait ...");
+                progressDialog.setMessage("Please wait ...");
                 progressDialog.show();
 
                 mTextStart = editTextStart.getText().toString();
