@@ -17,7 +17,6 @@
 
 
         <FrameLayout
-            android:id="@+id/map_container"
             android:layout_width="match_parent"
             android:layout_height="340dp" >
 
@@ -37,7 +36,6 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/linearsearch"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.0"
@@ -134,7 +132,6 @@
                 android:textSize="16dp" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/editText2"

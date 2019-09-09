@@ -43,8 +43,7 @@ public class PassengerRegister extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.password);
         mPassword2 = (EditText) findViewById(R.id.password2);
         dialog = new ProgressDialog(this);
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Passengers");
+        mAuth = FirebaseAuth.getInstance();mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Passengers");
 
         mAlreadyregisterd.setOnClickListener(new View.OnClickListener() {
             @Override

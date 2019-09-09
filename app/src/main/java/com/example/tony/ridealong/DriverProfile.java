@@ -1,5 +1,6 @@
 package com.example.tony.ridealong;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -25,8 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.xmlpull.v1.sax2.Driver;
 
 public class DriverProfile extends AppCompatActivity {
 
@@ -62,18 +61,22 @@ public class DriverProfile extends AppCompatActivity {
             public void onClick(View view) {
                 if (TextUtils.isEmpty(carname.getText().toString())){
                     Toast.makeText(DriverProfile.this, "Please Enter Car Name!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 if (TextUtils.isEmpty(iddetail.getText().toString())){
                     Toast.makeText(DriverProfile.this, "Please Enter Id or Passport Number!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 if (TextUtils.isEmpty(drivinglicence.getText().toString())){
                     Toast.makeText(DriverProfile.this, "Please insert Driving License Number!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 if (TextUtils.isEmpty(numberplate.getText().toString())){
                     Toast.makeText(DriverProfile.this, "Please insert Number Plate! ", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(DriverProfile.this);
@@ -162,7 +165,7 @@ public class DriverProfile extends AppCompatActivity {
                     Uri selectedImage = imageReturnedIntent.getData();
                     driver.setImageURI(selectedImage);
                 }
-             break;
+                break;
             case 1:
                 if (resultCode == RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();

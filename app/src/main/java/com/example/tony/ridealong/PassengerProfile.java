@@ -6,20 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.FileProvider;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +22,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class PassengerProfile extends AppCompatActivity {
 
@@ -37,6 +34,8 @@ public class PassengerProfile extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference table_passenger_profiles;
     String mIdDetail;
+    private Uri uri = null;
+    private StorageReference storageReference;
     private FirebaseAuth mAuth;
     public static final int CAMERA_REQUESTCAMERA_REQUEST= 1888;
     ImageView passenger;
@@ -53,20 +52,23 @@ public class PassengerProfile extends AppCompatActivity {
         table_passenger_profiles = database.getReference("PassengerProfiles"); //this your table name
         iddetail = findViewById(R.id.iddetail);
         submit = findViewById(R.id.submit);
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (TextUtils.isEmpty(iddetail.getText().toString())){
+                final String mIdDetail = iddetail.getText().toString().trim();
+
+                if (TextUtils.isEmpty(mIdDetail)){
                     Toast.makeText(PassengerProfile.this, "Please Enter Id or Passport Number!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(PassengerProfile.this);
                 progressDialog.setMessage("please wait ...");
                 progressDialog.show();
 
-                mIdDetail = iddetail.getText().toString();
 
 
                 table_passenger_profiles.addValueEventListener(new ValueEventListener() {
@@ -113,11 +115,6 @@ public class PassengerProfile extends AppCompatActivity {
                 startActivityForResult(pickPhoto, 1);
             }
         });
-
-
-
-
-
 
 
 

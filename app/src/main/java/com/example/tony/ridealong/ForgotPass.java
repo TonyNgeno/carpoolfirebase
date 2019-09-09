@@ -63,7 +63,7 @@ public class ForgotPass extends AppCompatActivity {
                                 Log.d("Forgot Email", "Email sent.");
                                 Toast.makeText(ForgotPass.this,
                                         "See Email for Furthur Instruction",Toast.LENGTH_LONG).show();
-                                Intent intent=new Intent(ForgotPass.this,LoginActivity.class);
+                                Intent intent=new Intent(ForgotPass.this,ChooseActivity.class);
                                 dialog.dismiss();
                                 startActivity(intent);
                                 finish();

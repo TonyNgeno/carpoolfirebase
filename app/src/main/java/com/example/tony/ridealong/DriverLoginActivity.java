@@ -77,7 +77,7 @@ public class DriverLoginActivity extends AppCompatActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DriverLoginActivity.this, PassengerRegister.class);
+                Intent intent = new Intent(DriverLoginActivity.this, DriverRegister.class);
                 startActivity(intent);
                 finish();
             }
@@ -140,7 +140,7 @@ public class DriverLoginActivity extends AppCompatActivity {
 
 
     public  void rgstr(View view){
-        Intent intent=new Intent(DriverLoginActivity.this, DriverRegisterHere.class);
+        Intent intent=new Intent(DriverLoginActivity.this, DriverRegister.class);
         startActivity(intent);
     }
 
