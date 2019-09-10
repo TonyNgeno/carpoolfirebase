@@ -88,10 +88,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="100dp"
                 android:layout_marginTop="10dp"
+                android:focusable="false"
                 android:background="@color/text_shadow_white"
                 android:ems="10"
                 android:padding="5dp"
-                android:focusable="false"
                 android:hint="Date"
                 android:inputType="date"
                 android:textColor="@android:color/black"
@@ -99,7 +99,7 @@
                 android:textSize="16dp" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
+                android:id="@+id/cardView3"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/editText2"
@@ -123,6 +123,38 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:text="Search rides"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBack"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/cardView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="@color/yellow2"
+                app:cardCornerRadius="3.5dp"
+                app:cardElevation="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBaseline="@+id/textView2"
+                    android:layout_alignBottom="@+id/textView2"
+                    android:layout_alignStart="@+id/cardView">
+
+                    <TextView
+                        android:id="@+id/textbck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Back"
                         android:textColor="@android:color/black"
                         android:textSize="18dp" />
                 </RelativeLayout>

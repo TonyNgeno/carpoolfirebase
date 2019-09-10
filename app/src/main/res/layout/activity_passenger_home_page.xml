@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@drawable/background_image_small"
+    tools:context=".PassengerHomePage">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editprofdetails"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="73dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Edit Profile Details"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/showridebtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Show Rides Available"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchbtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        android:focusable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Search Rides"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/backbtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Back"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+

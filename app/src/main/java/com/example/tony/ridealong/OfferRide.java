@@ -2,13 +2,16 @@ package com.example.tony.ridealong;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,14 +23,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 public class OfferRide extends AppCompatActivity {
 
     EditText editTextStart,editTextDest,editDate,editTextSeatNo,editTextSeatPrice;
     TextView textOfferARide;
+    CardView cardviewbtn;
     FirebaseDatabase database;
     DatabaseReference table_rides;
     String mTextStart,mTextDest,mDate,mTextSeatNo,mTextSeatPrice;
     private FirebaseAuth mAuth;
+    DatePickerDialog datePickerDialog;
+    int year;
+    int month;
+    int dayofMonth;
+    Calendar calendar;
 
 
     @Override
@@ -45,6 +56,36 @@ public class OfferRide extends AppCompatActivity {
         editTextSeatNo = findViewById(R.id.editTextSeatNo);
         editTextSeatPrice = findViewById(R.id.editTextSeatPrice);
         textOfferARide = findViewById(R.id.textOfferARide);
+        cardviewbtn = findViewById(R.id.cardviewbtn);
+
+
+        cardviewbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OfferRide.this, DriverHomePage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        editDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar= Calendar.getInstance();
+                year = calendar.get(Calendar.YEAR);
+                month = calendar.get(Calendar.MONTH);
+                dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                datePickerDialog = new DatePickerDialog(OfferRide.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        editDate.setText(day + "/" + month + "/" + year);
+                    }
+                }, year, month, dayofMonth);
+
+                datePickerDialog.show();
+
+            }
+        });
 
 
 
@@ -68,7 +109,7 @@ public class OfferRide extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(editTextSeatPrice.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Enter Pricegit !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OfferRide.this, "Enter Price!!!", Toast.LENGTH_SHORT).show();
                 }
 
                 final ProgressDialog progressDialog = new ProgressDialog(OfferRide.this);
@@ -88,7 +129,7 @@ public class OfferRide extends AppCompatActivity {
                         table_rides.child(mTextStart).setValue(offerRide);
 
                         Toast.makeText(OfferRide.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        final Intent mainIntent = new Intent(OfferRide.this, PassengerProfile.class);
+                        final Intent mainIntent = new Intent(OfferRide.this, ShowRides.class);
                         OfferRide.this.startActivity(mainIntent);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         OfferRide.this.finish();

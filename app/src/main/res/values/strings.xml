@@ -15,7 +15,6 @@
     <string name="menu_send">Send</string>
 
     <string name="drawer_open">Open navigation drawer</string>
-
     <string name="drawer_close">Close navigation drawer</string>
     <string name="title_activity_passenger_home_nav">PassengerHomeNav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -24,5 +23,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <!-- TODO: Remove or change this placeholder text -->
+
 
 </resources>
