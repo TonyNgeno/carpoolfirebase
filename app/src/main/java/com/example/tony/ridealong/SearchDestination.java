@@ -14,7 +14,7 @@ import java.util.Calendar;
 
 public class SearchDestination extends AppCompatActivity {
     CardView cardViewBack;
-    EditText editDate;
+    EditText editDate, editTextStart, editTextDest, editTextNo;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
@@ -28,6 +28,9 @@ public class SearchDestination extends AppCompatActivity {
 
         cardViewBack = findViewById(R.id.cardViewBack);
         editDate = findViewById(R.id.editDate);
+        editTextDest = findViewById(R.id.editTextDest);
+        editTextNo = findViewById(R.id.editTextNo);
+        editTextStart = findViewById(R.id.editTextStart);
 
 
         cardViewBack.setOnClickListener(new View.OnClickListener() {

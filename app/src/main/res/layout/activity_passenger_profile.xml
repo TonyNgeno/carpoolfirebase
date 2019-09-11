@@ -55,7 +55,7 @@
 
     <EditText
         android:id="@+id/iddetail"
-        android:layout_width="250dp"
+        android:layout_width="270dp"
         android:layout_height="40dp"
         android:layout_below="@+id/linearlayoutadd"
         android:layout_centerHorizontal="true"
@@ -95,6 +95,33 @@
                 android:textSize="22sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bckpass"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/submit"
+        android:clickable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        app:cardBackgroundColor="@color/yellow2"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Back"
+                android:textColor="@android:color/black"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 
 
 

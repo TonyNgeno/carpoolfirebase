@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/yellow2"
             >
 
             <ImageView
@@ -208,11 +209,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+
                     android:gravity="center_vertical"
                     android:onClick="bookitem"
                     android:layout_alignParentTop="true"
-                    android:background="#f4bc42"
-                    android:layout_marginBottom="10dp"
+                    android:background="@color/text_shadow_white"
+                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="13dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"

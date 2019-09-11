@@ -1,64 +1,56 @@
 package com.example.tony.ridealong.Model;
 
 public class Rides {
-    private String item_title,item_start,item_dest,item_date,item_seats,priceperseat;
+    private String Start_Point,Destination,Date,No_of_Seats,Price_per_seat;
 
     public Rides() {
     }
 
-    public Rides(String item_title, String item_start, String item_dest, String item_date, String item_seats, String priceperseat) {
-        this.item_title = item_title;
-        this.item_start = item_start;
-        this.item_dest = item_dest;
-        this.item_date = item_date;
-        this.item_seats = item_seats;
-        this.priceperseat = priceperseat;
+    public Rides(String Start_Point, String Destination, String date, String Mo_of_Seats, String Price_per_seat) {
+        Start_Point = Start_Point;
+        Destination = Destination;
+        Date = date;
+        No_of_Seats = Mo_of_Seats;
+        Price_per_seat = Price_per_seat;
     }
 
-    public String getItem_title() {
-        return item_title;
+    public String getStart_Point() {
+        return Start_Point;
     }
 
-    public void setItem_title(String item_title) {
-        this.item_title = item_title;
+    public void setStart_Poinr(String start_Poinr) {
+        Start_Point = start_Poinr;
     }
 
-    public String getItem_start() {
-        return item_start;
+    public String getDestination() {
+        return Destination;
     }
 
-    public void setItem_start(String item_start) {
-        this.item_start = item_start;
+    public void setDestination(String destination) {
+        Destination = destination;
     }
 
-    public String getItem_dest() {
-        return item_dest;
+    public String getDate() {
+        return Date;
     }
 
-    public void setItem_dest(String item_dest) {
-        this.item_dest = item_dest;
+    public void setDate(String date) {
+        Date = date;
     }
 
-    public String getItem_date() {
-        return item_date;
-    }
-     public void setItem_date(String item_date) {
-        this.item_date = item_date;
+    public String getNo_of_Seats() {
+        return No_of_Seats;
     }
 
-    public String getItem_seats() {
-        return item_seats;
+    public void setNo_of_Seats(String no_of_Seats) {
+        No_of_Seats = no_of_Seats;
     }
 
-    public void setItem_seats(String item_seats) {
-        this.item_seats = item_seats;
+    public String getPrice_per_seat() {
+        return Price_per_seat;
     }
 
-    public String getPrice() {
-        return priceperseat;
-    }
-
-    public void setPrice(String priceperseat) {
-        this.priceperseat = priceperseat;
+    public void setPrice_per_seat(String price_per_seat) {
+        Price_per_seat = price_per_seat;
     }
 }

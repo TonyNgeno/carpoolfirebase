@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +32,7 @@ public class PassengerProfile extends AppCompatActivity {
 
     EditText iddetail;
     ImageView addcustomerimage;
-    CardView submit;
+    CardView submit,bckpass;
     FirebaseDatabase database;
     DatabaseReference table_passenger_profiles;
     String mIdDetail;
@@ -52,15 +54,27 @@ public class PassengerProfile extends AppCompatActivity {
         table_passenger_profiles = database.getReference("PassengerProfiles"); //this your table name
         iddetail = findViewById(R.id.iddetail);
         submit = findViewById(R.id.submit);
+        bckpass =  findViewById(R.id.bckpass);
         storageReference = FirebaseStorage.getInstance().getReference();
+
+
+        bckpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PassengerProfile.this, ChooseActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                final String mIdDetail = iddetail.getText().toString().trim();
 
-                if (TextUtils.isEmpty(mIdDetail)){
+
+                if (TextUtils.isEmpty(iddetail.getText().toString())){
                     Toast.makeText(PassengerProfile.this, "Please Enter Id or Passport Number!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -69,19 +83,27 @@ public class PassengerProfile extends AppCompatActivity {
                 progressDialog.setMessage("please wait ...");
                 progressDialog.show();
 
+                mIdDetail = iddetail.getText().toString().trim();
+
+                final DatabaseReference newPost = table_passenger_profiles.push();
+
 
 
                 table_passenger_profiles.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        com.example.tony.ridealong.Model.passengerProfile passengerProfile = new com.example.tony.ridealong.Model.passengerProfile(mIdDetail);
-                        table_passenger_profiles.child(mIdDetail).setValue(passengerProfile);
+                        newPost.child("Id or Passport No").setValue(mIdDetail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
 
-                        Toast.makeText(PassengerProfile.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        final Intent mainIntent = new Intent(PassengerProfile.this, SearchDestination.class);
-                        PassengerProfile.this.startActivity(mainIntent);
-                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        PassengerProfile.this.finish();
+                                if(task.isSuccessful()){
+                                    Intent mainActivity = new Intent(PassengerProfile.this,PassengerHomePage.class);
+                                    startActivity(mainActivity);
+                                }
+                            }
+                        });
+
+
 
 
 

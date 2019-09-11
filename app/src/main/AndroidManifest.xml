@@ -31,7 +31,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".PassengerHomePage"></activity>
+        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".PassengerHomePage" />
         <activity android:name=".DriverHomePage" />
         <activity android:name=".ShowRides" />
         <activity android:name=".SearchDestination" />

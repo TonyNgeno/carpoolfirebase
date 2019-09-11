@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     xmlns:tools="http://schemas.android.com/tools">
 
 
-<RelativeLayout
+ <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_image_small"
-    tools:context="com.example.tony.ridealong.DriverRegister">
+    tools:context="com.example.tony.ridealong.DriverProfile">
 
 
   <LinearLayout
@@ -178,6 +179,32 @@
                 android:textSize="22sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+
+     <androidx.cardview.widget.CardView
+         android:id="@+id/bckbtn"
+         android:layout_width="300dp"
+         android:layout_height="50dp"
+         android:layout_below="@+id/submitdriverprofile"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="40dp"
+         app:cardBackgroundColor="@color/yellow2"
+         app:cardCornerRadius="25dp"
+         app:cardElevation="10dp">
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:text="Back"
+                 android:textColor="@android:color/black"
+                 android:textSize="22sp" />
+         </RelativeLayout>
+     </androidx.cardview.widget.CardView>
 
 
 

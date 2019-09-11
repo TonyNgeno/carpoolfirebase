@@ -24,7 +24,7 @@ public class ChooseActivity extends AppCompatActivity {
         mDriver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseActivity.this, DriverHomePage.class);
+                Intent intent = new Intent(ChooseActivity.this, DriverLoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -33,7 +33,7 @@ public class ChooseActivity extends AppCompatActivity {
         mPassenger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseActivity.this, PassengerHomePage.class);
+                Intent intent = new Intent(ChooseActivity.this, PassengerLoginActivity.class);
                 startActivity(intent);
                 finish();
             }

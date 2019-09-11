@@ -21,7 +21,7 @@ import com.firebase.ui.auth.AuthUI;
 
 public class ShowRides extends AppCompatActivity {
     private RecyclerView mrideList;
-    private DatabaseReference mDatabase;
+    private DatabaseReference table_rides;
 
     private FirebaseAuth mAuth;
 
@@ -30,17 +30,20 @@ public class ShowRides extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.displayrideview);
 
-        mrideList = (RecyclerView) findViewById(R.id.ridesrecyclerview);
-        mrideList.setHasFixedSize(true);
-        mrideList.setLayoutManager(new LinearLayoutManager(this));
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Rides");
-
 
         mAuth = FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() == null) {
+        if (mAuth.getCurrentUser() == null) {        mAuth = FirebaseAuth.getInstance();
+
             startActivity(new Intent(this, PassengerLoginActivity.class));
             finish();
         }
+
+        String S = mAuth.getUid();
+        mrideList = (RecyclerView) findViewById(R.id.ridesrecyclerview);
+        mrideList.setHasFixedSize(true);
+        mrideList.setLayoutManager(new LinearLayoutManager(this));
+        table_rides = FirebaseDatabase.getInstance().getReference().child("Rides");
+
     }
 
 
@@ -52,7 +55,7 @@ public class ShowRides extends AppCompatActivity {
                 Rides.class,
                 R.layout.ridesdisplay,
                 rideViewHolder.class,
-                mDatabase
+                table_rides
         ) {
 
             @Override
@@ -60,12 +63,11 @@ public class ShowRides extends AppCompatActivity {
 
                 final String post_key = getRef(position).getKey().toString();
 
-                viewHolder.setItem_title(model.getItem_title());
-                viewHolder.setItem_start(model.getItem_start());
-                viewHolder.setDes(model.getItem_dest());
-                viewHolder.setSeats(model.getItem_seats());
-                viewHolder.setPrice(model.getPrice());
-                viewHolder.setDate(model.getItem_date());
+                viewHolder.setItem_start(model.getStart_Point());
+                viewHolder.setItem_dest(model.getDestination());
+                viewHolder.setSeats(model.getNo_of_Seats());
+                viewHolder.setPrice(model.getPrice_per_seat());
+                viewHolder.setDate(model.getDate());
 
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
@@ -94,14 +96,14 @@ public class ShowRides extends AppCompatActivity {
 
         public void setItem_title(String item_title){
             TextView Title = (TextView) mView.findViewById(R.id.item_title);
-            Title.setText(item_title);  
+            Title.setText(item_title);
         }
         public void setItem_start(String item_start){
             TextView Start= (TextView) mView.findViewById(R.id.item_start);
             Start.setText(item_start);
         }
 
-        public void setDes(String item_dest){
+        public void setItem_dest(String item_dest){
             TextView Dest = (TextView) mView.findViewById(R.id.item_dest);
             Dest.setText(item_dest);
         }

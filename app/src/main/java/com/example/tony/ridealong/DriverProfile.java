@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +33,7 @@ public class DriverProfile extends AppCompatActivity {
 
     EditText carname,iddetail,drivinglicence,numberplate;
     ImageView imageViewUploadCar,ViewPic;
-    CardView submitdriverprofile;
+    CardView submitdriverprofile,bckbtn;
     FirebaseDatabase database;
     DatabaseReference table_driver_profiles;
     String mCarName,mIdDetail,mDrivingLicence,mNumberPlate;
@@ -54,6 +56,17 @@ public class DriverProfile extends AppCompatActivity {
         drivinglicence = findViewById(R.id.drivinglicence);
         numberplate = findViewById(R.id.numberplate);
         submitdriverprofile = findViewById(R.id.submitdriverprofile);
+        bckbtn = findViewById(R.id.bckbtn);
+
+
+        bckbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DriverProfile.this, ChooseActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         submitdriverprofile.setOnClickListener(new View.OnClickListener() {
@@ -87,18 +100,27 @@ public class DriverProfile extends AppCompatActivity {
                 mIdDetail = iddetail.getText().toString();
                 mDrivingLicence = drivinglicence.getText().toString();
                 mNumberPlate = numberplate.getText().toString();
+                final DatabaseReference newPost = table_driver_profiles.push();
 
                 table_driver_profiles.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        com.example.tony.ridealong.Model.driverProfile driverProfile = new com.example.tony.ridealong.Model.driverProfile(mCarName,mIdDetail,mDrivingLicence,mNumberPlate);
-                        table_driver_profiles.child(mCarName).setValue(driverProfile);
 
-                        Toast.makeText(DriverProfile.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        final Intent mainIntent = new Intent(DriverProfile.this, OfferRide.class);
-                        DriverProfile.this.startActivity(mainIntent);
-                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        DriverProfile.this.finish();
+                        newPost.child("Car Name").setValue(mCarName);
+                        newPost.child("Id Or Passport Number").setValue(mIdDetail);
+                        newPost.child("Driving Licence").setValue(mDrivingLicence);
+                        newPost.child("Number Plate").setValue(mNumberPlate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if(task.isSuccessful()){
+                                    Intent mainActivity = new Intent(DriverProfile.this,DriverHomePage.class);
+                                    startActivity(mainActivity);
+                                }
+
+                            }
+                        });
+
 
 
 

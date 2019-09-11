@@ -16,7 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +37,7 @@ public class OfferRide extends AppCompatActivity {
     DatabaseReference table_rides;
     String mTextStart,mTextDest,mDate,mTextSeatNo,mTextSeatPrice;
     private FirebaseAuth mAuth;
+    private FirebaseUser mcurrentUser;
     DatePickerDialog datePickerDialog;
     int year;
     int month;
@@ -121,18 +125,28 @@ public class OfferRide extends AppCompatActivity {
                 mDate = editDate.getText().toString();
                 mTextSeatNo = editTextSeatNo.getText().toString();
                 mTextSeatPrice = editTextSeatPrice.getText().toString();
+                final DatabaseReference newPost = table_rides.push();
 
                 table_rides.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        com.example.tony.ridealong.Model.OfferRide offerRide = new com.example.tony.ridealong.Model.OfferRide(mTextDest,mDate,mTextSeatNo,mTextSeatPrice);
-                        table_rides.child(mTextStart).setValue(offerRide);
+                        newPost.child("Start_Point").setValue(mTextStart);
+                        newPost.child("Destination").setValue(mTextDest);
+                        newPost.child("Date").setValue(mDate);
+                        newPost.child("No_of_Seats").setValue(mTextSeatNo);
+                        newPost.child("Price_per_seat").setValue(mTextSeatPrice);
 
-                        Toast.makeText(OfferRide.this, "Welcome", Toast.LENGTH_SHORT).show();
-                        final Intent mainIntent = new Intent(OfferRide.this, ShowRides.class);
-                        OfferRide.this.startActivity(mainIntent);
-                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        OfferRide.this.finish();
+
+                        newPost.child("uid").setValue(mcurrentUser.getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if(task.isSuccessful()){
+                                    Intent mainActivity = new Intent(OfferRide.this,DriverHomePage.class);
+                                    startActivity(mainActivity);
+                                }
+                            }
+                        });
 
 
 
