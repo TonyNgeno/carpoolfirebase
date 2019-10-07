@@ -31,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".ChangePassword"></activity>
+        <activity android:name=".ChangePassword" />
         <activity android:name=".PassengerHomePage" />
         <activity android:name=".DriverHomePage" />
         <activity android:name=".ShowRides" />
@@ -68,7 +68,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowRideAdapter" />
     </application>
 
 </manifest>

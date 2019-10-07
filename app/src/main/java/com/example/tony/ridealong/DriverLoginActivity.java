@@ -42,7 +42,7 @@ public class DriverLoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
     private static final int RC_SIGN_IN=1;
     private GoogleSignInClient mGoogleSignInClient;
-    private static final String TAG ="LoginActivity";
+    private static final String TAG ="DLoginActivity";
     Button mButton,register;
     CardView mLogin;
     private EditText mEmail,mPass;
@@ -89,7 +89,7 @@ public class DriverLoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user!=null){
-                    Intent intent = new Intent(DriverLoginActivity.this, DriverProfile.class);
+                    Intent intent = new Intent(DriverLoginActivity.this, DriverMainActivity.class);
                     startActivity(intent);
                     finish();
                 }
