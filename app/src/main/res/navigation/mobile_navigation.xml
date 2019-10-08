@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.tony.ridealong.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="My Rides"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.tony.ridealong.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Settings"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.tony.ridealong.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="Profile"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
