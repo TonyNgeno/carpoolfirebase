@@ -7,8 +7,7 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:background="@drawable/background_image_small"
-    tools:context=".PassengerHomePage"
-    app:menu="@menu/drawermenu">
+    tools:context=".PassengerHomePage">
 
 
     <androidx.cardview.widget.CardView

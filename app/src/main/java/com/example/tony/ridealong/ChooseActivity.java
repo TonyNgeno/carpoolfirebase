@@ -24,7 +24,7 @@ public class ChooseActivity extends AppCompatActivity {
         mDriver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseActivity.this, DriverLoginActivity.class);
+                Intent intent = new Intent(ChooseActivity.this, DriverDashboard.class);
                 startActivity(intent);
                 finish();
             }
