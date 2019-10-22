@@ -62,7 +62,7 @@ public class DriverProfile extends AppCompatActivity {
         bckbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DriverProfile.this, ChooseActivity.class);
+                Intent intent = new Intent(DriverProfile.this,ChooseActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -114,7 +114,7 @@ public class DriverProfile extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
 
                                 if(task.isSuccessful()){
-                                    Intent mainActivity = new Intent(DriverProfile.this,DriverHomePage.class);
+                                    Intent mainActivity = new Intent(DriverProfile.this,OfferRide.class);
                                     startActivity(mainActivity);
                                 }
 

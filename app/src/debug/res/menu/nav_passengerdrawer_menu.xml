@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_passengerhome_id"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_myrides_id"
+            android:icon="@drawable/ic_directions_car_black_24dp"
+            android:title="My Rides" />
+        <item
+            android:id="@+id/nav_passengerprofile_id"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Profile" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_passengersend_id"
+                android:icon="@drawable/ic_send_black_24dp"
+                android:title="Send" />
+            <item
+                android:id="@+id/nav_passengershare_id"
+                android:icon="@drawable/ic_publish_black_24dp"
+                android:title="Share" />
+
+        </menu>
+    </item>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_passengerdarkmode_id"
+                android:title="Dark Mode"
+                android:icon="@drawable/ic_brightness_3_black_24dp"
+                app:actionLayout="@layout/nav_drawer_driverdarkmode_switch"
+                />
+            <item
+                android:id="@+id/nav_passengersettings_id"
+                android:title="Settings"
+                android:icon="@drawable/ic_settings_black_24dp"
+                />
+        </menu>
+    </item>
+
+</menu>

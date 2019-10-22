@@ -31,14 +31,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity
-            android:name=".DriverDashboard"
-            android:label="@string/title_activity_driver_dashboard"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ChangePassword" />
         <activity android:name=".PassengerHomePage" />
         <activity android:name=".DriverHomePage" />
         <activity android:name=".ShowRides" />
+        <activity android:name=".PassengerMainActivity"/>
+        <activity android:name=".DriverMainActivity"/>
         <activity android:name=".SearchDestination" />
         <activity android:name=".RateActivity" />
         <activity android:name=".OfferRide" />

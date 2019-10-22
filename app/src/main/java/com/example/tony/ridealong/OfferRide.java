@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,13 +31,14 @@ public class OfferRide extends AppCompatActivity {
 
     EditText editTextStart,editTextDest,editDate,editTextSeatNo,editTextSeatPrice;
     TextView textOfferARide;
-    CardView cardviewbtn;
+    CardView cardview1,cardviewbtn;
     FirebaseDatabase database;
     DatabaseReference table_rides;
     String mTextStart,mTextDest,mDate,mTextSeatNo,mTextSeatPrice;
     private FirebaseAuth mAuth;
     private FirebaseUser mcurrentUser;
     DatePickerDialog datePickerDialog;
+    TextView backbutton;
     int year;
     int month;
     int dayofMonth;
@@ -59,18 +59,24 @@ public class OfferRide extends AppCompatActivity {
         editDate = findViewById(R.id.editDate);
         editTextSeatNo = findViewById(R.id.editTextSeatNo);
         editTextSeatPrice = findViewById(R.id.editTextSeatPrice);
-        textOfferARide = findViewById(R.id.textOfferARide);
         cardviewbtn = findViewById(R.id.cardviewbtn);
+        cardview1 = findViewById(R.id.cardview1);
+
+
 
 
         cardviewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OfferRide.this, DriverHomePage.class);
+                Intent intent = new Intent(OfferRide.this, ChooseActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+
+
+
 
         editDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +99,7 @@ public class OfferRide extends AppCompatActivity {
 
 
 
-        textOfferARide.setOnClickListener(new View.OnClickListener() {
+        cardview1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(editTextStart.getText().toString())){
@@ -142,7 +148,7 @@ public class OfferRide extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
 
                                 if(task.isSuccessful()){
-                                    Intent mainActivity = new Intent(OfferRide.this,DriverHomePage.class);
+                                    Intent mainActivity = new Intent(OfferRide.this, DriverMainActivity.class);
                                     startActivity(mainActivity);
                                 }
                             }

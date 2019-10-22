@@ -96,7 +96,7 @@ public class DriverRegister extends AppCompatActivity {
                                     current_user_db.child("password").setValue(password11);
 
                                     Toast.makeText(DriverRegister.this, "Welcome", Toast.LENGTH_SHORT).show();
-                                    final Intent mainIntent = new Intent(DriverRegister.this, OfferRide.class);
+                                    final Intent mainIntent = new Intent(DriverRegister.this, DriverProfile.class);
                                     DriverRegister.this.startActivity(mainIntent);
                                     mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     DriverRegister.this.finish();

@@ -19,9 +19,11 @@ import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -98,7 +100,7 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
             {
                 return;
             }
-    }
+        }
     }
 
     private void stopLocationUpdates() {
@@ -107,19 +109,19 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            switch (requestCode)
-            {
-                case MY_PERMISSION_REQUEST_CODE:
-                    if (grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED)
+        switch (requestCode)
+        {
+            case MY_PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0]== PackageManager.PERMISSION_GRANTED)
+                {
+                    if (checkPlayServices())
                     {
-                        if (checkPlayServices())
-                        {
-                            buildGoogleApiClient();
-                            createLocationRequest();
-                            displayLocation();
-                        }
+                        buildGoogleApiClient();
+                        createLocationRequest();
+                        displayLocation();
                     }
-            }
+                }
+        }
     }
 
     private void setUpLocation() {
@@ -188,8 +190,8 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApi);
         if (mLastLocation!= null){
 
-                final  double latitude = mLastLocation.getLatitude();
-                final double longitude = mLastLocation.getLongitude();
+            final  double latitude = mLastLocation.getLatitude();
+            final double longitude = mLastLocation.getLongitude();
 
             geoFire.setLocation(FirebaseAuth.getInstance().getCurrentUser().getUid(), new GeoLocation(latitude, longitude), new GeoFire.CompletionListener() {
                 @Override
@@ -197,9 +199,9 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
                     if(mCurrent != null)
                         mCurrent.remove();
                     mCurrent = mMap.addMarker(new MarkerOptions()
-                                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.car))
-                                                .position(new LatLng(latitude,longitude))
-                                                  .title("You"));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.car))
+                            .position(new LatLng(latitude,longitude))
+                            .title("You"));
 
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude),15.0f));
 
@@ -217,26 +219,26 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
 
     private void rotateMarker(final Marker mCurrent, final float i, GoogleMap mMap) {
         final Handler handler = new Handler();
-         final long start = SystemClock.uptimeMillis();
+        final long start = SystemClock.uptimeMillis();
         final float startRotation = mCurrent.getRotation();
         final long duration = 1500;
 
         final Interpolator interpolator = new LinearInterpolator();
 
-      handler.post(new Runnable() {
-          @Override
-          public void run() {
-              long elapsed = SystemClock.uptimeMillis() - start;
-              float t = interpolator.getInterpolation((float)elapsed/duration);
-              float rot = t*i+(1-t)*startRotation;
-              mCurrent.setRotation(-rot > 180?rot/2:rot);
-              if (t<1.0)
-              {
-                  handler.postDelayed(this,16);
-              }
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = interpolator.getInterpolation((float)elapsed/duration);
+                float rot = t*i+(1-t)*startRotation;
+                mCurrent.setRotation(-rot > 180?rot/2:rot);
+                if (t<1.0)
+                {
+                    handler.postDelayed(this,16);
+                }
 
-          }
-      });
+            }
+        });
     }
 
 
