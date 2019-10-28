@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/background_image_small"
-    android:layout_height="match_parent"
-    tools:context="com.example.tony.ridealong.OfferRide">
+    android:layout_height="match_parent">
 
     <LinearLayout
 
@@ -165,12 +164,12 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/cardviewbtn"
                 android:layout_below="@+id/cardview1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="100dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="5dp"
                 app:cardBackgroundColor="@color/yellow2"
                 app:cardCornerRadius="3.5dp"
                 app:cardElevation="8dp">

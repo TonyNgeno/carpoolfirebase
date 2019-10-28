@@ -1,4 +1,4 @@
-package com.example.tony.ridealong;
+package com.example.tony.ridealong.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class PassengerProfileFragment extends Fragment {
+import com.example.tony.ridealong.R;
+
+public class PassengerSettingsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_passengerprofile_layout,container,false);
+        return inflater.inflate(R.layout.fragment_passengersettings_layout,container,false);
     }
 }

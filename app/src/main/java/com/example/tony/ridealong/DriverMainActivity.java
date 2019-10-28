@@ -14,6 +14,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.tony.ridealong.Fragment.DriverHomeFragment;
+import com.example.tony.ridealong.Fragment.DriverProfileFragment;
+import com.example.tony.ridealong.Fragment.DriverSettingsFragment;
+import com.example.tony.ridealong.Fragment.RequestsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class DriverMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,6 +27,7 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
     private FrameLayout frameLayout;
     private NavigationView navigationView;
     private SwitchCompat darkModeSwitch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +39,9 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
         initializeDefaultFragment(savedInstanceState,0);
         setDarkModeSwitchListener();
 
+
     }
 
-    /**
-     * Initialize all widgets
-     */
     private void initializeViews() {
         toolbar = findViewById(R.id.toolbar_id);
         toolbar.setTitle(R.string.toolbar_title);
@@ -50,13 +53,7 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
         darkModeSwitch = (SwitchCompat)navigationView.getMenu().findItem(R.id.nav_driverdarkmode_id).getActionView();
     }
 
-    /**
-     * Checks if the savedInstanceState is null - onCreate() is ran
-     * If so, display fragment of navigation drawer menu at position itemIndex and
-     * set checked status as true
-     * @param savedInstanceState
-     * @param itemIndex
-     */
+
     private void initializeDefaultFragment(Bundle savedInstanceState, int itemIndex){
         if (savedInstanceState == null){
             MenuItem menuItem = navigationView.getMenu().getItem(itemIndex).setChecked(true);
@@ -64,13 +61,7 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
         }
     }
 
-    /**
-     * Creates an instance of the ActionBarDrawerToggle class:
-     * 1) Handles opening and closing the navigation drawer
-     * 2) Creates a hamburger icon in the toolbar
-     * 3) Attaches listener to open/close drawer on icon clicked and rotates the icon
-     */
-    private void toggleDrawer() {
+     private void toggleDrawer() {
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
@@ -123,9 +114,6 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
         return true;
     }
 
-    /**
-     * Attach setOnCheckedChangeListener to the dark mode switch
-     */
     private void setDarkModeSwitchListener(){
         darkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -140,19 +128,12 @@ public class DriverMainActivity extends AppCompatActivity implements NavigationV
         });
     }
 
-    /**
-     * Checks if the navigation drawer is open - if so, close it
-     */
     private void closeDrawer(){
         if (drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
     
-    /**
-     * Iterates through all the items in the navigation menu and deselects them:
-     * removes the selection color
-     */
     private void deSelectCheckedState(){
         int noOfItems = navigationView.getMenu().size();
         for (int i=0; i<noOfItems;i++){

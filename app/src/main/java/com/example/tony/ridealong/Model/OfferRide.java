@@ -2,47 +2,56 @@ package com.example.tony.ridealong.Model;
 
 public class OfferRide {
 
-    private String editTextDest,editDate,editTextSeatNo,editTextSeatPrice;
+    private String mTextDest, mTextSeatNo, mTextStart, mDate, mTextSeatPrice;
 
     public OfferRide() {
     }
 
-    public OfferRide(String editTextDest, String editDate, String editTextSeatNo, String editTextSeatPrice) {
-        this.editTextDest = editTextDest;
-        this.editDate = editDate;
-        this.editTextSeatNo = editTextSeatNo;
-        this.editTextSeatPrice = editTextSeatPrice;
+    public OfferRide(String mTextDest, String mTextSeatNo, String mTextStart, String mDate, String mTextSeatPrice) {
+        this.mTextDest = mTextDest;
+        this.mTextSeatNo = mTextSeatNo;
+        this.mTextStart = mTextStart;
+        this.mDate = mDate;
+        this.mTextSeatPrice = mTextSeatPrice;
     }
 
-    public String getEditTextDest() {
-        return editTextDest;
+    public String getmTextDest() {
+        return mTextDest;
     }
 
-    public void setEditTextDest(String editTextDest) {
-        this.editTextDest = editTextDest;
+    public void setmTextDest(String mTextDest) {
+        this.mTextDest = mTextDest;
     }
 
-    public String getEditDate() {
-        return editDate;
+    public String getmTextSeatNo() {
+        return mTextSeatNo;
     }
 
-    public void setEditDate(String editDate) {
-        this.editDate = editDate;
+    public void setmTextSeatNo(String mTextSeatNo) {
+        this.mTextSeatNo = mTextSeatNo;
     }
 
-    public String getEditTextSeatNo() {
-        return editTextSeatNo;
+    public String getmTextStart() {
+        return mTextStart;
     }
 
-    public void setEditTextSeatNo(String editTextSeatNo) {
-        this.editTextSeatNo = editTextSeatNo;
+    public void setmTextStart(String mTextStart) {
+        this.mTextStart = mTextStart;
     }
 
-    public String getEditTextSeatPrice() {
-        return editTextSeatPrice;
+    public String getmDate() {
+        return mDate;
     }
 
-    public void setEditTextSeatPrice(String editTextSeatPrice) {
-        this.editTextSeatPrice = editTextSeatPrice;
+    public void setmDate(String mDate) {
+        this.mDate = mDate;
+    }
+
+    public String getmTextSeatPrice() {
+        return mTextSeatPrice;
+    }
+
+    public void setmTextSeatPrice(String mTextSeatPrice) {
+        this.mTextSeatPrice = mTextSeatPrice;
     }
 }

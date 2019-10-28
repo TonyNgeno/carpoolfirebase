@@ -1,12 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5dp"
+    android:background="#D0D0D0"
+    android:screenOrientation="portrait"
+    app:cardCornerRadius="10dp"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rides Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:orientation="vertical"
+        android:background="@color/yellow2"
+        >
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:cropToPadding="false"
+            android:src="@drawable/profilepic"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:textAlignment="center"
+            android:text="Tony Ngeno"
+            android:layout_marginTop="10dp"
+            android:textSize="23dp"
+            android:paddingRight="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:text="Start Point:"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+            <TextView
+                android:id="@+id/item_start"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Start Point"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:text="Destination:"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+            <TextView
+                android:id="@+id/item_dest"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Destination"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:text="Date:"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+            <TextView
+                android:id="@+id/item_date"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Date"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:text="No of Seats Available:"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+            <TextView
+                android:id="@+id/item_seats"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Seats Available"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:paddingBottom="15dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:text="Price Per Seat:"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+            <TextView
+                android:id="@+id/priceperseat"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Price Per Seat"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp" />
+
+
+        </LinearLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonbook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+
+                android:gravity="center_vertical"
+                android:onClick="bookitem"
+                android:layout_alignParentTop="true"
+                android:background="@color/text_shadow_white"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="13dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Book"
+                android:textSize="25dp" />
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -14,6 +14,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.tony.ridealong.Fragment.PassengerHomeFragment;
+import com.example.tony.ridealong.Fragment.PassengerProfileFragment;
+import com.example.tony.ridealong.Fragment.PassengerSettingsFragment;
+import com.example.tony.ridealong.Fragment.RidessFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class PassengerMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -93,7 +97,7 @@ public class PassengerMainActivity extends AppCompatActivity implements Navigati
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.nav_passengerhome_id:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new DriverHomeFragment())
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new PassengerHomeFragment())
                         .commit();
                 closeDrawer();
                 break;
@@ -103,7 +107,7 @@ public class PassengerMainActivity extends AppCompatActivity implements Navigati
                 closeDrawer();
                 break;
             case R.id.nav_passengerprofile_id:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new DriverProfileFragment())
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new PassengerProfileFragment())
                         .commit();
                 closeDrawer();
                 break;
@@ -114,7 +118,7 @@ public class PassengerMainActivity extends AppCompatActivity implements Navigati
                 Toast.makeText(this, "Share Pressed", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_passengersettings_id:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new DriverSettingsFragment())
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new PassengerSettingsFragment())
                         .commit();
                 deSelectCheckedState();
                 closeDrawer();

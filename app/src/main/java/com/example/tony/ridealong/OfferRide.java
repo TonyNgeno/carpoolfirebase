@@ -65,110 +65,99 @@ public class OfferRide extends AppCompatActivity {
 
 
 
-        cardviewbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(OfferRide.this, ChooseActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
-
-
-
-        editDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar= Calendar.getInstance();
-                year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.MONTH);
-                dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                datePickerDialog = new DatePickerDialog(OfferRide.this, new DatePickerDialog.OnDateSetListener() {
+                cardviewbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        editDate.setText(day + "/" + month + "/" + year);
+                    public void onClick(View view) {
+                        Intent intent = new Intent(OfferRide.this, ChooseActivity.class);
+                        startActivity(intent);
+                        finish();
+                }
+            });
+
+
+
+
+
+            editDate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    calendar= Calendar.getInstance();
+                    year = calendar.get(Calendar.YEAR);
+                    month = calendar.get(Calendar.MONTH);
+                    dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                    datePickerDialog = new DatePickerDialog(OfferRide.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                            editDate.setText(day + "/" + month + "/" + year);
+                        }
+                    }, year, month, dayofMonth);
+
+                    datePickerDialog.show();
+
+                }
+            });
+
+
+
+            cardview1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    editTextSeatPrice.setText("100");
+
+                    if(TextUtils.isEmpty(editTextStart.getText().toString()) || TextUtils.isEmpty(editTextDest.getText().toString())
+                    || TextUtils.isEmpty(editDate.getText().toString() )|| TextUtils.isEmpty(editTextSeatNo.getText().toString() )||
+                            TextUtils.isEmpty(editTextSeatPrice.getText().toString())){
+                        Toast.makeText(OfferRide.this, "Empty fields", Toast.LENGTH_SHORT).show();
                     }
-                }, year, month, dayofMonth);
 
-                datePickerDialog.show();
+                    final ProgressDialog progressDialog = new ProgressDialog(OfferRide.this);
+                    progressDialog.setMessage("Please wait ...");
+                    progressDialog.show();
 
-            }
-        });
+                    mTextStart = editTextStart.getText().toString();
+                    mTextDest = editTextDest.getText().toString();
+                    mDate = editDate.getText().toString();
+                    mTextSeatNo = editTextSeatNo.getText().toString();
+                    mTextSeatPrice = editTextSeatPrice.getText().toString();
+                    final DatabaseReference newPost = table_rides.push();
 
-
-
-        cardview1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(editTextStart.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Enter Start Destination", Toast.LENGTH_SHORT).show();
-                }
-
-                if (TextUtils.isEmpty(editTextDest.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Enter Destination", Toast.LENGTH_SHORT).show();
-                }
-
-                if (TextUtils.isEmpty(editDate.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Please Enter Date", Toast.LENGTH_SHORT).show();
-                }
-
-                if (TextUtils.isEmpty(editTextSeatNo.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Please Enter Seat No !!!", Toast.LENGTH_SHORT).show();
-                }
-
-                if (TextUtils.isEmpty(editTextSeatPrice.getText().toString())){
-                    Toast.makeText(OfferRide.this, "Enter Price!!!", Toast.LENGTH_SHORT).show();
-                }
-
-                final ProgressDialog progressDialog = new ProgressDialog(OfferRide.this);
-                progressDialog.setMessage("Please wait ...");
-                progressDialog.show();
-
-                mTextStart = editTextStart.getText().toString();
-                mTextDest = editTextDest.getText().toString();
-                mDate = editDate.getText().toString();
-                mTextSeatNo = editTextSeatNo.getText().toString();
-                mTextSeatPrice = editTextSeatPrice.getText().toString();
-                final DatabaseReference newPost = table_rides.push();
-
-                table_rides.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        newPost.child("Start_Point").setValue(mTextStart);
-                        newPost.child("Destination").setValue(mTextDest);
-                        newPost.child("Date").setValue(mDate);
-                        newPost.child("No_of_Seats").setValue(mTextSeatNo);
-                        newPost.child("Price_per_seat").setValue(mTextSeatPrice);
+                    table_rides.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            newPost.child("Start_Point").setValue(mTextStart);
+                            newPost.child("Destination").setValue(mTextDest);
+                            newPost.child("Date").setValue(mDate);
+                            newPost.child("No_of_Seats").setValue(mTextSeatNo);
+                            newPost.child("Price_per_seat").setValue(mTextSeatPrice);
 
 
-                        newPost.child("uid").setValue(mcurrentUser.getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+                            newPost.child("uid").setValue(mcurrentUser.getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
 
-                                if(task.isSuccessful()){
-                                    Intent mainActivity = new Intent(OfferRide.this, DriverMainActivity.class);
-                                    startActivity(mainActivity);
+                                    if(task.isSuccessful()){
+                                        Intent mainActivity = new Intent(OfferRide.this, DriverMainActivity.class);
+                                        startActivity(mainActivity);
+                                    }
                                 }
-                            }
-                        });
+                            });
 
 
 
-                    }
+                        }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
-            }
-        });
-
-
+                        }
+                    });
+                }
+            });
 
 
 
-    }
+
+
+        }
 }
