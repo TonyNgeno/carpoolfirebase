@@ -20,9 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.ui.auth.AuthUI;
 
 public class ShowRides extends AppCompatActivity {
+
     private RecyclerView mrideList;
     private DatabaseReference table_rides;
-
     private FirebaseAuth mAuth;
 
     @Override
