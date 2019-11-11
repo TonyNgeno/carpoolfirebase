@@ -53,6 +53,7 @@ public class PassengerHomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_passengerhome_layout,container,false);
+        setHasOptionsMenu(true);
 
 
         mrideList = view.findViewById(R.id.rides_fragment_recyclerview);
@@ -78,7 +79,7 @@ public class PassengerHomeFragment extends Fragment {
 
             }
         });
-      /*  setHasOptionsMenu(true);*/
+      /*  */
 
         return view;
     }
@@ -107,4 +108,6 @@ public class PassengerHomeFragment extends Fragment {
 
 
     }
+
+
 }

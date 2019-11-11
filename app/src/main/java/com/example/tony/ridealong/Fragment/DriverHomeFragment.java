@@ -2,6 +2,7 @@ package com.example.tony.ridealong.Fragment;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +39,7 @@ import java.util.Calendar;
 
 public class DriverHomeFragment extends Fragment {
 
-    EditText editTextStart,editTextDest,editDate,editTextSeatNo,editTextSeatPrice;
+    EditText editTextStart,editTextDest,editDate,editTime,editTextSeatNo,editTextSeatPrice;
     TextView textOfferARide;
     CardView cardview1,cardviewbtn;
     FirebaseDatabase database;
@@ -46,10 +48,13 @@ public class DriverHomeFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseUser mcurrentUser;
     DatePickerDialog datePickerDialog;
+    TimePickerDialog timePickerDialog;
     TextView backbutton;
     int year;
     int month;
     int dayofMonth;
+    int hour;
+    int minute;
     Calendar calendar;
 /*     int id = 1;*/
 
@@ -66,6 +71,7 @@ public class DriverHomeFragment extends Fragment {
         editTextStart = rootview.findViewById(R.id.editTextStart);
         editTextDest = rootview.findViewById(R.id.editTextDest);
         editDate = rootview.findViewById(R.id.editDate);
+        editTime = rootview.findViewById(R.id.editTime);
         editTextSeatNo = rootview.findViewById(R.id.editTextSeatNo);
         editTextSeatPrice = rootview.findViewById(R.id.editTextSeatPrice);
         cardviewbtn = rootview.findViewById(R.id.cardviewbtn);
@@ -107,8 +113,30 @@ public class DriverHomeFragment extends Fragment {
             }
         });
 
+        editTime.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            calendar = Calendar.getInstance();
+                                            hour = calendar.get(Calendar.HOUR);
+                                            minute = calendar.get(Calendar.MINUTE);
+                                            timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                                                @Override
+                                                public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                                                    editTime.setText(selectedHour + ":" + selectedMinute);
+                                                }
 
-        cardview1.setOnClickListener(new View.OnClickListener() {
+                                            }, hour, minute, true);//Yes 24 hour time
+
+                                            timePickerDialog.setTitle("Select Time");
+                                            timePickerDialog.show();
+                                        }
+                                    });
+
+
+
+
+
+                cardview1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

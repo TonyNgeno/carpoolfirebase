@@ -77,6 +77,44 @@
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/editTextDefnRoute"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/editTextDest"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/text_shadow_white"
+                android:ems="10"
+                android:padding="5dp"
+                android:hint="Define Routes"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/editTextMeetpoint"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/editTextDefnRoute"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/text_shadow_white"
+                android:ems="10"
+                android:padding="5dp"
+                android:hint="Meetup Points"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="16dp" />
+
+
+
+            <EditText
                 android:id="@+id/editDate"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
@@ -93,6 +131,25 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/black"
                 android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/editTime"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/editDate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/text_shadow_white"
+                android:ems="10"
+                android:padding="5dp"
+                android:hint="Time"
+                android:focusable="false"
+                android:inputType="time"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="16dp" />
+
 
 
 

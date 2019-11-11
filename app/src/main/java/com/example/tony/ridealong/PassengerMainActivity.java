@@ -1,5 +1,6 @@
 package com.example.tony.ridealong;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
@@ -13,14 +14,18 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.tony.ridealong.Fragment.PassengerHomeFragment;
 import com.example.tony.ridealong.Fragment.PassengerProfileFragment;
 import com.example.tony.ridealong.Fragment.PassengerSettingsFragment;
 import com.example.tony.ridealong.Fragment.RidessFragment;
+import com.example.tony.ridealong.Fragment.TabPast;
+import com.example.tony.ridealong.Fragment.TabUpcoming;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
-public class PassengerMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class PassengerMainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener  {
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -50,6 +55,7 @@ public class PassengerMainActivity extends AppCompatActivity implements Navigati
         drawerLayout = findViewById(R.id.passengerdrawer_layout_id);
         frameLayout = findViewById(R.id.framelayout_id);
         navigationView = findViewById(R.id.navigationview_id);
+
         navigationView.setNavigationItemSelectedListener(this);
         darkModeSwitch = (SwitchCompat)navigationView.getMenu().findItem(R.id.nav_passengerdarkmode_id).getActionView();
     }
@@ -163,4 +169,6 @@ public class PassengerMainActivity extends AppCompatActivity implements Navigati
             navigationView.getMenu().getItem(i).setChecked(false);
         }
     }
+
+
 }
